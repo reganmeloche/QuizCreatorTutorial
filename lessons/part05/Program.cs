@@ -6,7 +6,7 @@ namespace QuizCreator.Part5
 {
     class Program5
     {
-        static void Main(string[] args) {
+        static void Main_(string[] args) {
             IReadInput reader = new FileReader("./myFile.txt");
             IPrintResults printer = new FilePrinter("outputFile");
             ICountWords wordCounter = new WordCounter();

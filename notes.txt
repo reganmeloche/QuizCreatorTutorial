@@ -61,16 +61,19 @@ Part 6:
 
 
 Part 7:
-- Polishing and cleaning
-- Adding tests
-- Error handling/logging - make a general log file
-- Add a list of common words to ignore
-- Add randomness into the scoring
-- Use values from an app config
-- Create an executable and run it
-- Deploying?
+- Polishing and cleaning - done
+- Adding tests: WordCounter and WordInfoGetter - got a start; using FakeItEasy
+- Add randomness into the scoring - done - added an options object
+- Use values from an app config - done 
+- Create an executable and run it - done
+
+- adding tests: https://docs.microsoft.com/en-us/dotnet/core/tutorials/testing-with-cli
+- adding tests issue fix: https://andrewlock.net/fixing-the-error-program-has-more-than-one-entry-point-defined-for-console-apps-containing-xunit-tests/
 
 
 More ideas:
 - add in a user search for wikipedia and fetch from there.
--- uses http, error handling, etc. That's a good one
+- Add a list of common words to ignore
+- Add logging - can use console or another file
+- Use Microsoft Dependency Injection
+- Deploy it to a job in azure

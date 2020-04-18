@@ -23,9 +23,7 @@ namespace QuizCreator.Part7
                 return result;
             }
 
-            result = _innerLookup.Lookup(word);
             return _innerLookup.Lookup(word);
         }
-
     }
 }

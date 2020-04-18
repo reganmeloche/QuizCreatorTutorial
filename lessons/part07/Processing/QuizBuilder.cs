@@ -5,12 +5,12 @@ namespace QuizCreator.Part7
 {
     public class QuizBuilder : IBuildAQuiz
     {
-        private readonly int _scoreThreshold;
         private readonly IGetWordInfo _wordInfoGetter;
+        private readonly GameOptions _gameOptions;
 
-        public QuizBuilder(IGetWordInfo wordInfoGetter, int scoreThreshold) {
+        public QuizBuilder(IGetWordInfo wordInfoGetter, GameOptions gameOptions) {
             _wordInfoGetter = wordInfoGetter;
-            _scoreThreshold = scoreThreshold;
+            _gameOptions = gameOptions;
         }
 
         public QuizResult Build(string initialText) {
@@ -21,19 +21,20 @@ namespace QuizCreator.Part7
 
             var splitWords = initialText.Split(' ');
             var distance = 0;
+            Random rnd = new Random();
 
             foreach (var word in splitWords) {
                 var strippedWord = Helpers.StripPunctuation(word);
 
                 if (wordInfoDict.ContainsKey(strippedWord)) {
-                    // word score goes here- update this. Maybe no wordScorer class
                     var score = 
                         GetTypeScore(wordInfoDict[strippedWord].WordType) +
                         wordInfoDict[strippedWord].WordCount + 
                         strippedWord.Length + 
+                        rnd.Next(-_gameOptions.RandomFactor, _gameOptions.RandomFactor) +
                         distance;
 
-                    if (score > _scoreThreshold) {
+                    if (score > _gameOptions.ScoreThreshold) {
                         var blank = BuildBlank(strippedWord);
                         quiz.Add(blank);
                         answerKey.Add(strippedWord);

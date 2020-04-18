@@ -9,7 +9,7 @@ namespace QuizCreator.Part7
         public CoreWord() {
             this.Word = "";
             this.WordType = "unknown";
-            this.Definition = "Unknown";
+            this.Definition = "unknown";
         }
 
         public CoreWord(string word) : this() {
